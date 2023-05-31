@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="gse_hr_holidays_tree_inherit" model="ir.ui.view">
+			<field name="name">gse.payroll.inherit</field>
+			<field name="model">hr.leave</field>
+			<field name="inherit_id" ref="hr_holidays.hr_leave_view_tree"/>
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='state']" position="after">
+                    <field name="struc_type" optional="show"/>
+				</xpath>
+			</field>
+		</record>
+        
+        <record id="gse_hr_holidays_filter_inherit" model="ir.ui.view">
+			<field name="name">gse.payroll.filter.inherit</field>
+			<field name="model">hr.leave</field>
+			<field name="inherit_id" ref="hr_holidays.view_hr_holidays_filter"/>
+			<field name="arch" type="xml">
+				<xpath expr="//filter[@name='department']" position="after">
+                    <separator/>
+                    <filter string="GoShop" name="goshop" domain="[('employee_id.contract_id.structure_type_id.id', '=', '1')]" help="GoShop"/>
+                    <filter string="Sesomo" name="sesomo" domain="[('employee_id.contract_id.structure_type_id.id', '=', '5')]" help="Sesomo"/>
+                    <filter string="Dewpoint" name="dewpoint" domain="[('employee_id.contract_id.structure_type_id.id', '=', '6')]" help="Dewpoint"/>
+                    <filter string="ITM" name="itm" domain="[('employee_id.contract_id.structure_type_id.id', '=', '9')]" help="ITM"/>
+					<filter string="Congo Serveur" name="congo_serveur" domain="[('employee_id.contract_id.structure_type_id.id', '=', '11')]" help="Congo Serveur"/>
+				</xpath>
+			</field>
+		</record>
+	</data>
+</odoo>
