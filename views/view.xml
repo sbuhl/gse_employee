@@ -17,6 +17,7 @@
 			<field name="model">hr.leave</field>
 			<field name="inherit_id" ref="hr_holidays.view_hr_holidays_filter"/>
 			<field name="arch" type="xml">
+				<!-- Filter Fields-->
 				<xpath expr="//filter[@name='department']" position="after">
                     <separator/>
                     <filter string="GoShop" name="goshop" domain="[('employee_id.contract_id.structure_type_id.id', '=', '1')]" help="GoShop"/>
@@ -24,6 +25,59 @@
                     <filter string="Dewpoint" name="dewpoint" domain="[('employee_id.contract_id.structure_type_id.id', '=', '6')]" help="Dewpoint"/>
                     <filter string="ITM" name="itm" domain="[('employee_id.contract_id.structure_type_id.id', '=', '9')]" help="ITM"/>
 					<filter string="Congo Serveur" name="congo_serveur" domain="[('employee_id.contract_id.structure_type_id.id', '=', '11')]" help="Congo Serveur"/>
+				</xpath>
+			</field>
+		</record>
+		<record id="gse_hr_holidays_filter_inherit_2" model="ir.ui.view">
+			<field name="name">gse.payroll.filter.inherit.2</field>
+			<field name="model">hr.leave</field>
+			<field name="inherit_id" ref="hr_holidays.view_hr_holidays_filter"/>
+			<field name="arch" type="xml">
+				<!-- Group By Fields-->               
+                <xpath expr="//group/filter[@name='group_state']" position="after">
+                    <filter string="Salary Structure" name="groupby_salary_structure" context="{'group_by':'struc_type'}"/>
+                </xpath>
+			</field>
+		</record>
+
+		<record id="gse_hr_badge_inherit" model="ir.ui.view">
+			<field name="name">gse.badge.report.inherit</field>
+			<field name="model">hr.leave</field>
+			<field name="inherit_id" ref="hr.print_employee_badge"/>
+			<field name="arch" type="xml">
+				<xpath expr="//t/t/div" position="replace">
+                    <div class="page">
+						<t t-foreach="docs" t-as="employee">
+							<div class="col-md-6">
+								<table style="width:243pt; height:153pt; border: 1pt solid black; border-collapse:separate; border-radius:8pt; margin:5pt">
+									<td style="width:33%;" valign="center">
+										<table style="width:77pt; height:150pt">
+											<tr style="height:30%">
+												<td align="center" valign="center">
+													<img t-if="employee.company_id.logo" t-att-src="image_data_uri(employee.company_id.logo)" style="max-height:45pt;max-width:90%" alt="Company Logo"/>
+												</td>
+											</tr>
+											<tr style="height:70%;">
+												<td align="center" valign="center">
+													<img t-att-src="image_data_uri(employee.avatar_1920)" style="max-height:85pt;max-width:90%" alt="Employee Image"/>
+												</td>
+											</tr>
+										</table>
+									</td>
+									<td style="width:67%" valign="center">
+										<table style="width:155pt; height:85pt">
+											<tr><th><div style="font-size:15pt; margin-bottom:0pt;margin-top:0pt;" align="center"><t t-esc="employee.name"/></div></th></tr>
+											<!--<tr><td><div align="center" style="font-size:10pt;margin-bottom:5pt;"><t t-esc="employee.job_id.name"/></div></td></tr>-->
+											<tr><td><div align="center" style="font-size:10pt;margin-bottom:5pt;"><t t-esc="employee.job_title"/></div></td></tr>
+											<tr><td><div align="center" style="font-size:10pt;margin-bottom:5pt;"><t t-esc="employee.work_location_id.name"/></div></td></tr>
+											<tr><td><div align="center" style="font-size:10pt;margin-bottom:5pt;"><t t-esc="employee.contract_id.date_start"/> -> <t t-esc="employee.contract_id.date_end"/></div></td></tr>
+											<tr><td><div t-if="employee.barcode" t-field="employee.barcode" t-options="{'widget': 'barcode', 'width': 600, 'height': 120, 'img_style': 'max-height:50pt;max-width:100%;', 'img_align': 'center'}"/></td></tr>
+										</table>
+									</td>
+								</table>
+							</div>
+						</t>
+					</div>
 				</xpath>
 			</field>
 		</record>
