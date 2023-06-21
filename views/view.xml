@@ -6,8 +6,24 @@
 			<field name="model">hr.leave</field>
 			<field name="inherit_id" ref="hr_holidays.hr_leave_view_tree"/>
 			<field name="arch" type="xml">
+				<xpath expr="//field[@name='employee_id']" position="after">
+					<field optional="show" name="work_location"/>
+				</xpath>
 				<xpath expr="//field[@name='state']" position="after">
                     <field name="struc_type" optional="show"/>
+				</xpath>
+			</field>
+		</record>
+		<record id="gse_hr_holidays_tree_allocation_inherit" model="ir.ui.view">
+			<field name="name">gse.payroll.allocation.inherit</field>
+			<field name="model">hr.leave.allocation</field>
+			<field name="inherit_id" ref="hr_holidays.hr_leave_allocation_view_tree"/>
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='employee_id']" position="after">
+					<field optional="show" name="work_location"/>
+				</xpath>
+				<xpath expr="//field[@name='state']" position="after">
+                    <field name="struc_type" optional="hidden"/>
 				</xpath>
 			</field>
 		</record>
