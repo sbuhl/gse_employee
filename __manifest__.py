@@ -17,7 +17,10 @@
 
     # any module necessary for this one to work correctly
     'depends': [
-        'hr','hr_holidays',
+        'base',
+        'hr',
+        'hr_holidays', 
+        'hr_holidays_attendance',
     ],
 
     'data': [

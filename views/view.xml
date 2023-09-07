@@ -97,5 +97,66 @@
 				</xpath>
 			</field>
 		</record>
+		<!-- Stat Button Goals Employee for Admin-->
+        <record id="view_goals_employee" model="ir.ui.view">
+            <field name="name">view.goals.employees</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+					<button class="oe_stat_button" icon="fa-bullseye" type="action" name="action_view_goals">
+						<field widget="statinfo" name="goal_count" string="Goal Count"/>
+					</button>
+                </xpath>
+            </field>
+        </record>
+		<!-- Duties and Responsabilities for Admin-->
+		<record id="view_tasks_and_roles_employee" model="ir.ui.view">
+            <field name="name">view.tasks.roles.employees</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr_skills.hr_employee_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@class='row'][1]" position="before">
+					<div class="row">
+                        <div class="o_hr_skills_editable o_hr_skills_group o_group_roles col-lg-6 d-flex flex-column">
+                            <separator string="Duties and Responsabilities" class="mb-4"/>
+                            <field name="duties"/>
+                        </div>
+                        <div class="o_hr_skills_editable o_hr_skills_group o_group_roles col-lg-6 d-flex flex-column">
+                            <separator string="Goals" class="mb-4"/>
+                            <field name="goaly_ids"/>
+                        </div>
+					</div>
+                </xpath>
+            </field>
+        </record>
+
+		<!-- Goals, Duties and Responsabilities for Public-->
+		<record id="gse_view_tasks_and_roles_employee" model="ir.ui.view">
+            <field name="name">view.tasks.roles.employees</field>
+            <field name="model">hr.employee.public</field>
+            <field name="inherit_id" ref="hr_skills.hr_employee_public_view_form_inherit"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='public']/div[1]" position="before">
+					<div class="row">
+                        <div class="o_hr_skills_editable o_hr_skills_group o_group_roles col-lg-6 d-flex flex-column">
+                            <separator string="Duties and Responsabilities" class="mb-4"/>
+                            <field name="duties"/>
+                        </div>
+                        <div class="o_hr_skills_editable o_hr_skills_group o_group_roles col-lg-6 d-flex flex-column">
+                            <separator string="Goals" class="mb-4"/>
+                            <field name="goaly_ids"/>
+                        </div>
+					</div>
+                </xpath>
+                <xpath expr="//field[@name='goaly_ids']" position="inside">
+                    <tree sample="1" class="o_goal_list">
+                      <field name="name" class="fw-bold"/>
+                      <field name="deadline" widget="remaining_days"/>
+                      <field name="progression" widget="badge" decoration-success="progression == '100'"/>
+                    </tree>
+                  </xpath>
+            </field>
+        </record>
 	</data>
 </odoo>
