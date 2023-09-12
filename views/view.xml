@@ -104,7 +104,7 @@
             <field name="inherit_id" ref="hr.view_employee_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
-					<button class="oe_stat_button" icon="fa-bullseye" type="action" name="action_view_goals">
+					<button class="oe_stat_button" icon="fa-bullseye" type="object" name="action_view_goals">
 						<field widget="statinfo" name="goal_count" string="Goal Count"/>
 					</button>
                 </xpath>

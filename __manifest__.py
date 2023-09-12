@@ -19,8 +19,8 @@
     'depends': [
         'base',
         'hr',
-        'hr_holidays', 
-        'hr_holidays_attendance',
+        'hr_appraisal',
+        'hr_holidays',
     ],
 
     'data': [
