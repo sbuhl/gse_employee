@@ -20,11 +20,14 @@
         'base',
         'hr',
         'hr_appraisal',
+        'hr_contract',
         'hr_holidays',
+        'hr_work_entry',
     ],
 
     'data': [
         'views/view.xml',
+        'views/work_entry.xml',
         
     ],
     'assets': {
