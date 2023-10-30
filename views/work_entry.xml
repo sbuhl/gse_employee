@@ -14,6 +14,7 @@
                     <filter name="studio_filter_Sesomo" string="Sesomo" domain="[('salary_work_structure_id', '=', 5)]"/>
                     <filter name="studio_filter_ITM" string="ITM" domain="[('salary_work_structure_id', '=', 9)]"/>
                     <filter name="studio_filter_Congo_Serveur" string="Congo Serveur" domain="[('salary_work_structure_id', '=', 11)]"/>
+					<filter name="studio_filter_Stagiaire" string="Stagiaire" domain="[('salary_work_structure_id', '=', 10)]"/>
                 </xpath>
 			</field>
 		</record>
