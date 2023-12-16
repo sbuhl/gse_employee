@@ -28,6 +28,8 @@
     'data': [
         'views/view.xml',
         'views/work_entry.xml',
+        'views/hr_contract_views.xml',
+        'views/salary_calculation_wizard.xml',
         
     ],
     'assets': {

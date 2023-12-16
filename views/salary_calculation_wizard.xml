@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_salary_calculation_wizard_form" model="ir.ui.view">
+        <field name="name">salary.calculation.wizard.form</field>
+        <field name="model">salary.calculation.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="net_salary"/>
+                    <field name="month"/>
+                    <field name="structure_type_id"/>
+                    <field name="tolerance_threshold"/>
+                    <field name="basic_salary" readonly="1"/>
+                </group>
+                <footer>
+                    <button string="Calculate" type="object" class="oe_highlight" name="calculate_salary"/>
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
