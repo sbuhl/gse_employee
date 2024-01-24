@@ -8,9 +8,18 @@
                 <group>
                     <field name="net_salary"/>
                     <field name="month"/>
-                    <field name="structure_type_id"/>
                     <field name="tolerance_threshold"/>
-                    <field name="basic_salary" readonly="1"/>
+                    <field name="basic_salary" readonly="1"/> 
+                    <field name="struct_id"/> 
+                    <field name="rule_ids">
+                         <tree>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="category_id"/>
+                            <field name="sequence" invisible="1"/>
+                            <field name="partner_id"/>
+                         </tree>
+                    </field>
                 </group>
                 <footer>
                     <button string="Calculate" type="object" class="oe_highlight" name="calculate_salary"/>

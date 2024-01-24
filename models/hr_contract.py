@@ -8,25 +8,16 @@ class Contract(models.Model):
     _inherit = 'hr.contract'
     _description = 'Contract Form extension'
 
-    net_salary = fields.Monetary('Net Salary (USD)')
-    month = fields.Selection([
-        ('january', 'January'),
-        ('february', 'February'),
-        ('march', 'March'),
-        ('april', 'April'),
-        ('may', 'May'),
-        ('june', 'June'),
-        ('july', 'July'),
-        ('august', 'August'),
-        ('september', 'September'),
-        ('october', 'October'),
-        ('november', 'November'),
-        ('december', 'December'),
-    ], string='Month', required=True)
-    tolerance_threshold = fields.Float('Tolerance Threshold')
-
     def open_salary_calculation_wizard(self): 
-        wizard = self.env['salary.calculation.wizard'].create({}) 
+        wizard = self.env['salary.calculation.wizard'].create({
+            # 'employee_id': self.employee_id.id,
+            # 'contract_id': self.id,
+        #     'date_from': self.date_start,
+        #     'date_to': self.date_end,
+        }) 
+        
+        
+
         return {
             'name': 'Salary Calculation',
             'type': 'ir.actions.act_window',
