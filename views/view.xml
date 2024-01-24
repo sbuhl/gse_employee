@@ -111,7 +111,7 @@
             </field>
         </record>
 		<!-- Duties and Responsabilities for Admin-->
-		<record id="view_tasks_and_roles_employee" model="ir.ui.view">
+		<!-- <record id="view_tasks_and_roles_employee" model="ir.ui.view">
             <field name="name">view.tasks.roles.employees</field>
             <field name="model">hr.employee</field>
             <field name="inherit_id" ref="hr_skills.hr_employee_view_form"/>
@@ -129,10 +129,10 @@
 					</div>
                 </xpath>
             </field>
-        </record>
+        </record> -->
 
 		<!-- Goals, Duties and Responsabilities for Public-->
-		<record id="gse_view_tasks_and_roles_employee" model="ir.ui.view">
+		<!-- <record id="gse_view_tasks_and_roles_employee" model="ir.ui.view">
             <field name="name">view.tasks.roles.employees</field>
             <field name="model">hr.employee.public</field>
             <field name="inherit_id" ref="hr_skills.hr_employee_public_view_form_inherit"/>
@@ -157,6 +157,6 @@
                     </tree>
                   </xpath>
             </field>
-        </record>
+        </record> -->
 	</data>
 </odoo>
