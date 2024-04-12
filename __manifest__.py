@@ -22,6 +22,7 @@
         'hr_appraisal',
         'hr_contract',
         'hr_holidays',
+        'hr_skills',
         'hr_work_entry',
     ],
 
