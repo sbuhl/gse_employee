@@ -29,7 +29,7 @@
     'data': [
         'views/view.xml',
         'views/work_entry.xml',
-        
+        'views/res_users.xml',
     ],
     'assets': {
         
