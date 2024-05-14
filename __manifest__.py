@@ -24,12 +24,15 @@
         'hr_holidays',
         'hr_skills',
         'hr_work_entry',
+        'hr_payroll',
     ],
 
     'data': [
         'views/view.xml',
         'views/work_entry.xml',
-        
+        'views/hr_contract_views.xml',
+        'views/salary_calculation_wizard.xml',
+        'security/ir.model.access.csv'
     ],
     'assets': {
         
