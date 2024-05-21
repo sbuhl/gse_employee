@@ -5,7 +5,7 @@ class ResUsers(models.Model):
     _inherit = "res.users"
 
     job_id = fields.Many2one('hr.job', compute='_compute_job_id',
-        domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]", string='Job Position')
+        domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]", string='Employee Job Position')
 
     def _compute_job_id(self):
         for user in self:
