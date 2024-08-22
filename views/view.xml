@@ -111,12 +111,12 @@
             </field>
         </record>
 		<!-- Duties and Responsabilities for Admin-->
-		<record id="view_tasks_and_roles_employee" model="ir.ui.view">
+		<record id="view_tasks_and_roles_employee_form" model="ir.ui.view">
             <field name="name">view.tasks.roles.employees</field>
             <field name="model">hr.employee</field>
             <field name="inherit_id" ref="hr_skills.hr_employee_view_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//div[@class='row'][1]" position="before">
+                <xpath expr="//div[hasclass('row')][1]" position="before">
 					<div class="row">
                         <div class="o_hr_skills_editable o_hr_skills_group o_group_roles col-lg-6 d-flex flex-column">
                             <separator string="Duties and Responsabilities" class="mb-4"/>
@@ -132,7 +132,7 @@
         </record>
 
 		<!-- Goals, Duties and Responsabilities for Public-->
-		<record id="gse_view_tasks_and_roles_employee" model="ir.ui.view">
+		<record id="gse_view_tasks_and_roles_employee_form_public" model="ir.ui.view">
             <field name="name">view.tasks.roles.employees</field>
             <field name="model">hr.employee.public</field>
             <field name="inherit_id" ref="hr_skills.hr_employee_public_view_form_inherit"/>
