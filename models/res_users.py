@@ -9,4 +9,9 @@ class ResUsers(models.Model):
 
     def _compute_job_id(self):
         for user in self:
-            user.job_id = user.employee_ids.job_id
+            if user.employee_ids:
+                # Handling multiple employee records by taking the first one
+                user.job_id = user.employee_ids[0].job_id if user.employee_ids[0].job_id else False
+            else:
+                # In case there are no employee records
+                user.job_id = False
